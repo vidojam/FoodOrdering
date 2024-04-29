@@ -1,23 +1,31 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/src/components/EditScreenInfo';
-import { Text, View } from '@/src/components/Themed';
-import { startTransition } from 'react';
+import { StyleSheet,Text, View, Image } from 'react-native';
 import Colors from '../../constants/Colors';
+import products from '../../../assets/data/products';
+
+const product = products[1];
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pepperoni Pizza</Text>
-      <Text style={styles.price} >$12.99</Text>
+      <Image source={{ uri: product.image }} style={styles.image} />
+
+      <Text style={styles.title}>{product.name}</Text>
+      <Text style={styles.price} >${product.price}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 20,
+  },
 
-    
+  image: { 
+    width:'100%',
+    aspectRatio: 1,
+      
   },
   title: {
     fontSize: 18,
@@ -29,3 +37,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+
