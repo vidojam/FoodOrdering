@@ -1,12 +1,38 @@
-import {useLocalSearchParams} from 'expo-router'
-import {View, Text} from 'react-native';
+import {Stack,useLocalSearchParams} from 'expo-router'
+import {View, Text, Image} from 'react-native';
+import products from '@assets/data/products';
+import { defaultPizzaImage } from '@/components/ProductListItem';
 
 const ProductDetailsScreen = () => { 
   const { id } = useLocalSearchParams();
+
+  const product = products.find((p) => p.id.toString() === id); 
+
+  if (!product) {
+    return <Text>Product not found</Text>;
+  }
+
   return (
-    <View>
-      <Text style={{ fontSize: 20  }}>ProductDetailsScreen for {id}</Text>
+    <View style={styles.container}>
+      <Stack.Screen options={{ title: product.name }} />
+      <Image 
+       source={{ uri: product.image || defaultPizzaImage }} 
+       style={styles.image} />
+
+      <Text style={styles.price }>${product.price}</Text>
     </View>
   )
 }
-export default ProductDetailsScreen;i
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    image: {
+      width: '100%',
+      aspectRatio: 1
+    },
+    price: {}
+  },
+});
+export default ProductDetailsScreen;
