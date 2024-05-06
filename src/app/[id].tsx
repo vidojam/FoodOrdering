@@ -1,9 +1,12 @@
 import {Stack,useLocalSearchParams} from 'expo-router'
-import {View, Text, Image,StyleSheet } from 'react-native';
+import {View, Text, Image, StyleSheet } from 'react-native';
 import products from '@assets/data/products';
 import { defaultPizzaImage } from '@/components/ProductListItem';
+import { useState } from 'react';
 
 const sizes = ['S', 'M', 'L', 'XL'];
+
+const [selectedSize, setSelectedSize] = useState('M');
 
 const ProductDetailsScreen = () => { 
   const { id } = useLocalSearchParams();
@@ -17,6 +20,7 @@ const ProductDetailsScreen = () => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: product.name }} />
+
       <Image 
        source={{ uri: product.image || defaultPizzaImage }} 
        style={styles.image} 
@@ -25,11 +29,12 @@ const ProductDetailsScreen = () => {
       <Text>Select Size</Text>
       <View style={styles.sizes}>
         {sizes.map((size) => (
-        <View style={styles.size} key={size}>
-        <Text style={styles.sizeText}>{size}</Text>
-         </View> 
+        <View style={[styles.size, { backgroundColor: selectedSize === size? 'gainsboro' : 'white'}]} key={size}>
+           <Text style={styles.sizeText}>{size}</Text>
+        </View> 
         ))}
       </View>
+
       <Text style={styles.price }>${product.price}</Text>
     </View>
   );
@@ -64,7 +69,7 @@ const styles = StyleSheet.create({
     },
     sizeText: {
       fontSize: 20,
-      fontWeight: 500,
+      fontWeight: '500',
     },
 
 });
