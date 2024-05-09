@@ -12,6 +12,8 @@ const [selectedSize, setSelectedSize] = useState("M");
 const ProductDetailsScreen = () => {
   const { id } = useLocalSearchParams();
 
+  const [selectedSize, setSelectedSize] = useState('M');
+
   const product = products.find((p) => p.id.toString() === id);
 
   if (!product) {
