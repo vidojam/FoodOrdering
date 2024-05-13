@@ -2,10 +2,8 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import Colors from "../constants/Colors";
 import { forwardRef } from "react";
 
-
-
 type ButtonProps = {
-    text: string;
+  text: string;
 } & React.ComponentPropsWithoutRef<typeof Pressable>;
 
 const Button = forwardRef<View | null, ButtonProps>(
@@ -17,7 +15,7 @@ const Button = forwardRef<View | null, ButtonProps>(
     );
   }
 );
-  
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.light.tint,
@@ -27,7 +25,7 @@ const styles = StyleSheet.create({
   },
   text: {
     // Add styles for the text if needed
-  }
+  },
 });
 
 export default Button;
