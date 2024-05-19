@@ -1,5 +1,4 @@
-import { StyleSheet,Text, View, Image, FlatList } from 'react-native';
-import Colors from '../../../constants/Colors';
+import { FlatList } from 'react-native';
 import products from '@assets/data/products';
 import ProductListItem from '@components/ProductListItem';
 
