@@ -2,7 +2,6 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
-
 import Colors from '../../constants/Colors';
 import { useColorScheme } from '../../../src/components/useColorScheme';
 import { useClientOnlyValue } from '../../../src/components/useClientOnlyValue';
@@ -28,7 +27,7 @@ export default function TabLayout() {
         // headerShown: useClientOnlyValue(false, true),
       }}>
 
-        <Tabs.Screen name="index" options={{ href: null}} />
+        <Tabs.Screen name="index.tsx" options={{ href: null}} />
 
       <Tabs.Screen
         name="menu"

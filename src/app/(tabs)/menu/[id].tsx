@@ -3,7 +3,10 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import products from "@assets/data/products";
 import { defaultPizzaImage } from "@/components/ProductListItem";
 import { useState } from "react";
-import Button from "@/components/Button";
+import Button from "@components/Button";
+
+
+
 
 const sizes = ["S", "M", "L", "XL"];
 
@@ -46,15 +49,16 @@ const ProductDetailsScreen = () => {
             ]}
             key={size}
           >
-            <Text
-              style={[
+            <Text style={[
                 styles.sizeText,
-                { color: selectedSize === size ? "black" : "gray" },
+                { 
+                  color: selectedSize === size ? "black" : "gray" 
+                },
               ]}
             >
               {size}
             </Text>
-          </Pressable>
+          </Pressable> 
         ))}
       </View>
 
@@ -63,6 +67,8 @@ const ProductDetailsScreen = () => {
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
