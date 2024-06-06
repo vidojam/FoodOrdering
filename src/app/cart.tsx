@@ -9,4 +9,4 @@ const CartScreen = () => {
   );
 };
 
-export default cart;
+export default CartScreen;
