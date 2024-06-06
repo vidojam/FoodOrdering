@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import products from "@assets/data/products";
 import { defaultPizzaImage } from "@/components/ProductListItem";
 import { useState } from "react";
-import Button from "@/components/Button";
+import Button from "@components/Button";
 
 const sizes = ["S", "M", "L", "XL"];
 
